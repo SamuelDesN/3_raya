@@ -5,44 +5,52 @@ let jugador2 = [];
 let turno = 1;
 let contador=0
 $(function(){
-    $("#jugador1").text("Jugador1: "+player1);
-    $("#jugador2").text("Jugador2: "+player2);
-    $(".casilla").click(function(){
+    $("#turno2").text("Le toca a "+player1)
+    $("#jugador1").text("Jugador1:"+player1);
+    $("#jugador2").text("Jugador2:"+player2);
+    clicks()
+   function clicks(){ $(".casilla").click(function(){
         if (!$(this).hasClass("jugador1") && !$(this).hasClass("jugador2")) {
             if (turno === 1) {
                 $(this).addClass("jugador1");
                 jugador1.push(parseInt($(this).attr('id').substr(-1)));
                 turno = 2;
                 contador+=1
+                $("#turno2").text("Le toca a "+player2)
             } else {
                 $(this).addClass("jugador2");
                 jugador2.push(parseInt($(this).attr('id').substr(-1)));
                 turno = 1;
                 contador+=1
+                $("#turno2").text("Le toca a "+player1)
             }
             let ganador = verificarGanador();
             if (ganador === 1) {
                 //Me da pereza buscar como hacer para que no se pueda seguir poniendo fichas
+                $("#turno2").text("")
                 $("#p").text("Ganador "+player1);
-                $(".casilla").removeClass("jugador2")
-                $(".casilla").addClass("jugador1")
+                $(".casilla").off('click')
             } else if (ganador === 2) {
                 //Me da pereza buscar como hacer para que no se pueda seguir poniendo fichas
+                $("#turno2").text("")
                 $("#p").text("Ganador "+player2);
-                $(".casilla").removeClass("jugador1")
-                $(".casilla").addClass("jugador2")
+                $(".casilla").off('click');
             } else if (jugador1.length + jugador2.length === 9) {
+                $("#turno2").text("")
                 $("#p").text("¡Empate!");
             }
         }
         $("#turno").text("Turno: "+contador);
     });
+    }
     $("#boton").click(function(){
         jugador1=[];
         jugador2=[];
         contador=0;
+        $("#p").text("")
         $("#turno").text("Turno: "+contador);
         $(".casilla").removeClass("jugador1").removeClass("jugador2")
+        clicks()
     })
 });
 

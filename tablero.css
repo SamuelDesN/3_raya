@@ -1,11 +1,15 @@
 #tablero{
     display: grid; 
-    grid-template-areas: "casilla1 casilla2 casilla3"
-                         "casilla4 casilla5 casilla6"  
-                         "casilla7 casilla8 casilla9";
-                         width: 20%; 
-                         text-align: center;
-                         color: rgb(161, 0, 0);
+    grid-template-areas:"turno ganador turno2"
+                        "jugador1 boton jugador2"
+                        "casilla1 casilla2 casilla3"
+                        "casilla4 casilla5 casilla6"  
+                        "casilla7 casilla8 casilla9";
+    width: 50%; 
+    text-align: center;
+    color: rgb(161, 0, 0);
+    padding-left: 25%;
+
 }
 #casilla1, #casilla2,#casilla3,#casilla4, #casilla5,#casilla6, #casilla7,#casilla8, #casilla9{
     background-size: contain;
@@ -13,8 +17,8 @@
     background-position: center;
     border: 1px;
     width: 100%;
-    padding-top: 40%;
-    padding-bottom: 40%;
+    padding-top: 30%;
+    padding-bottom: 30%;
     border-style: solid;
     text-align: center;
     
@@ -46,9 +50,26 @@
 #casilla9{
     grid-area: casilla9;
 }
+#boton{
+    grid-area:boton;
+
+    margin-bottom: 3%;
+}
+#turno{
+    grid-area: turno;
+}
 .jugador1{
     background-image: url(./imagenes/circulo.png);
 }
 .jugador2{
     background-image: url(./imagenes/x.png);
+}
+#jugador1{
+    grid-area: jugador1;
+}
+#jugador2{
+    grid-area: jugador2;
+}
+#turno2{
+    grid-area: turno2
 }
