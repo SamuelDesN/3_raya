@@ -1,0 +1,54 @@
+#tablero{
+    display: grid; 
+    grid-template-areas: "casilla1 casilla2 casilla3"
+                         "casilla4 casilla5 casilla6"  
+                         "casilla7 casilla8 casilla9";
+                         width: 20%; 
+                         text-align: center;
+                         color: rgb(161, 0, 0);
+}
+#casilla1, #casilla2,#casilla3,#casilla4, #casilla5,#casilla6, #casilla7,#casilla8, #casilla9{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px;
+    width: 100%;
+    padding-top: 40%;
+    padding-bottom: 40%;
+    border-style: solid;
+    text-align: center;
+    
+}
+#casilla1{
+    grid-area: casilla1;
+}
+#casilla2{
+    grid-area: casilla2;
+}
+#casilla3{
+    grid-area: casilla3;
+}
+#casilla4{
+    grid-area: casilla4;
+}
+#casilla5{
+    grid-area: casilla5;
+}
+#casilla6{
+    grid-area: casilla6;
+}
+#casilla7{
+    grid-area: casilla7;
+}
+#casilla8{
+    grid-area: casilla8;
+}
+#casilla9{
+    grid-area: casilla9;
+}
+.jugador1{
+    background-image: url(./imagenes/circulo.png);
+}
+.jugador2{
+    background-image: url(./imagenes/x.png);
+}
